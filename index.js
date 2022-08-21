@@ -3,11 +3,7 @@ const shell = require("shelljs");
 const path = require("path");
 const fs = require("fs");
 
-const repoLink = [
-  "https://github.com/masai-course/ashish_fp02_159/tree/master/Unit4asc/unit-1/sprint-3/optional",
-  "https://github.com/masai-course/manish_fp02_160/tree/master/RCT-101-2/sprint-3/evaluation/masai-c3eval",
-  "https://github.com/masai-course/Janhavi_fp03_001/tree/master/unit-4/sprint-3/evaluation/masai-ops/masai-ops-",
-]; // URL of the repo to be cloned
+const repoLink = []; // URL of the repo to be cloned
 
 const goBackDirectory = repoLink[0]
   .split("https://github.com/masai-course/")[1]
