@@ -3,7 +3,16 @@ const shell = require("shelljs");
 const path = require("path");
 const fs = require("fs");
 
-const repoLink = []; // URL of the repo to be cloned
+const repoLink = [
+  "https://github.com/masai-course/ashish_fp02_159/tree/master/Unit4asc/unit-1/sprint-3/optional",
+  "https://github.com/masai-course/manish_fp02_160/tree/master/RCT-101-2/sprint-3/evaluation/masai-c3eval",
+  "https://github.com/masai-course/Janhavi_fp03_001/tree/master/unit-4/sprint-3/evaluation/masai-ops/masai-ops-",
+]; // URL of the repo to be cloned
+
+const goBackDirectory = repoLink[0]
+  .split("https://github.com/masai-course/")[1]
+  .split("/tree/master/")[0];
+// console.log(goBackDirectory);
 
 const getOutOfFolder = (folderName) => {
   while (true) {
@@ -40,7 +49,7 @@ const editPackageJson = (studentName, cdFolder) => {
   } catch (e) {
     console.log(e);
   }
-  getOutOfFolder("Vicky_fw19_0792"); // get out of the folder till particular folder
+  getOutOfFolder(goBackDirectory); // get out of the folder till particular folder
 };
 const cloneSingleRepo = (repo) => {
   const [repoLink, cdFolder] = repo.split("/tree/master");
@@ -53,10 +62,10 @@ const cloneSingleRepo = (repo) => {
   // cd to the folder
   shell.cd(studentName + "/" + cdFolder);
   // Edit the package.json file for react-scripts version
-  editPackageJson(studentName, cdFolder);
+  editPackageJson(studentName, cdFolder); // edit the package.json file
 };
 // cloneSingleRepo(repoLink[0]);
 
 repoLink.forEach((repo) => {
-  cloneSingleRepo(repo);
+  cloneSingleRepo(repo); // clone the single repo
 });
